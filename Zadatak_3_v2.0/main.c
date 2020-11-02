@@ -62,7 +62,7 @@ int main(void) {
 	puts("\nUcitajmo vezanu listu iz datoteke...\n");
 	readFile(&head, "list.txt");
 	printList(&head);
-	/*
+	
 	while (1) {
 
 	
@@ -106,7 +106,7 @@ int main(void) {
 
 	puts("\Potrazimo IZBRISANI element u listi...\n");
 	printListElement(findElement(&head, "Senta"));
-
+	
 
 	printList(&head);
 
@@ -118,7 +118,7 @@ int main(void) {
 	addAfter(&head,"Olic");
 	printList(&head);
 
-
+	
 	
 	
 	
@@ -129,14 +129,13 @@ int main(void) {
 	puts("\nIspisimo vezanu listu u datoteku...\n");
 	makeFile(&head, "list.txt");
 	printList(&head);
-	*/
+	
 
-
+	
 	puts("\nIzbrisimo vezanu listu...\n");
 	deleteList(&head.next);
 	printList(&head);
-
-
+	
 
 
 	system("pause");
