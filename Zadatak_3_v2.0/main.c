@@ -49,6 +49,8 @@ int sortByLastName(Position);//bubblesort
 int makeFile(Position, char*);
 int readFile(Position, char*);
 
+int deleteList(Position*);
+
 int main(void) {
 
 	Node head;
@@ -60,7 +62,7 @@ int main(void) {
 	puts("\nUcitajmo vezanu listu iz datoteke...\n");
 	readFile(&head, "list.txt");
 	printList(&head);
-	
+	/*
 	while (1) {
 
 	
@@ -108,14 +110,17 @@ int main(void) {
 
 	printList(&head);
 
+	puts("\nDodajmo element prije prezimena Olic...\n");
+	addBefore(&head, "Olic");
+	printList(&head);
 
 	puts("\nDodajmo element nakon prezimena Olic...\n");
 	addAfter(&head,"Olic");
 	printList(&head);
 
-	puts("\nDodajmo element prije prezimena Olic...\n");
-	addBefore(&head, "Olic");
-	printList(&head);
+
+	
+	
 	
 	puts("\nSortirajmo listu po prezimenima...\n");
 	sortByLastName(&head);
@@ -124,6 +129,13 @@ int main(void) {
 	puts("\nIspisimo vezanu listu u datoteku...\n");
 	makeFile(&head, "list.txt");
 	printList(&head);
+	*/
+
+
+	puts("\nIzbrisimo vezanu listu...\n");
+	deleteList(&head.next);
+	printList(&head);
+
 
 
 
@@ -256,7 +268,7 @@ int deleteElement(Position head, char* lastName) {
 	Position tmp = NULL;
 
 	foreach(p, head) 
-		if (strcmp(p->next->osoba.prez, lastName) == 0)
+		if (p->next!=NULL && strcmp(p->next->osoba.prez, lastName) == 0)
 		{
 			tmp = p->next->next;
 			free(p->next);
@@ -346,4 +358,13 @@ int printList(Position head) {
 	puts("\n");
 
 	return 0;
+}
+
+int deleteList(Position* head) {
+	if ((*head)->next != NULL)
+		deleteList(&((*head)->next));
+
+	free((*head));
+	(*head) = NULL;
+
 }
