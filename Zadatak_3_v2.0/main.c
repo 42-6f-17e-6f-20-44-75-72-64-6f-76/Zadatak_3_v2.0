@@ -99,12 +99,12 @@ int main(void) {
 
 
 
-	puts("\Izbrisimo element u listi...\n");
+	puts("\nIzbrisimo element u listi...\n");
 	deleteElement(&head, "Senta");
 	printList(&head);
 
 
-	puts("\Potrazimo IZBRISANI element u listi...\n");
+	puts("\nPotrazimo IZBRISANI element u listi...\n");
 	printListElement(findElement(&head, "Senta"));
 	
 
